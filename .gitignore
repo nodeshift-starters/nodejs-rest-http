@@ -1,4 +1,5 @@
 node_modules/
+tmp/
 
 #System Files
 .DS_Store

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "PORT=8080 ./bin/www",
+    "openshift": "nodeshift",
     "test": "tape test/*-test.js"
   },
   "dependencies": {
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "supertest": "^3.0.0",
-    "tape": "^4.6.3"
+    "tape": "^4.6.3",
+    "nodeshift": "^0.0.1"
   }
 }
