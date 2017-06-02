@@ -7,6 +7,13 @@
     "openshift": "nodeshift",
     "test": "tape test/*-test.js"
   },
+  "files": [
+    "package.json",
+    "README.md",
+    "app.js",
+    "public",
+    "bin"
+  ],
   "dependencies": {
     "body-parser": "~1.17.1",
     "debug": "~2.6.3",
