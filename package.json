@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "PORT=8080 ./bin/www",
-    "openshift": "nodeshift",
+    "openshift": "nodeshift --osc.strictSSL=false",
     "test": "tape test/*-test.js"
   },
   "files": [
@@ -20,7 +20,7 @@
     "express": "~4.15.2"
   },
   "devDependencies": {
-    "nodeshift": "0.0.4",
+    "nodeshift": "0.0.6",
     "supertest": "^3.0.0",
     "tape": "^4.6.3"
   }
