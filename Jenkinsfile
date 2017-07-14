@@ -5,6 +5,6 @@ node("launchpad-nodejs") {
     sh "npm install"
   }
   stage("Deploy") {
-    sh "npm run start"
+    sh "npm run openshift"
   }
 }
