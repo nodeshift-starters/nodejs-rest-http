@@ -20,7 +20,7 @@
     "express": "^4.15.3"
   },
   "devDependencies": {
-    "nodeshift": "0.0.7",
+    "nodeshift": "^0.3.0",
     "supertest": "^3.0.0",
     "tape": "^4.6.3"
   }
