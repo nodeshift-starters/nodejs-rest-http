@@ -6,8 +6,6 @@ node_js:
   - "8"
 script:
    - npm run test
-notifications:
-  irc: "irc.freenode.org#brass-monkey"
 branches:
   only:
     - master
