@@ -1,26 +1,55 @@
 {
   "name": "nodejs-rest-http",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.1",
+  "author": "Red Hat, Inc.",
+  "license": "Apache-2.0",
   "scripts": {
-    "start": "PORT=8080 node ./bin/www",
+    "test": "tape test/*.js | tap-spec",
+    "lint": "eslint test/*.js app.js bin/*",
+    "prepare": "nsp check",
+    "coverage": "nyc npm test",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
+    "ci": "npm run lint && npm run coveralls",
+    "dependencyCheck": "szero . --ci",
+    "release": "standard-version",
     "openshift": "nodeshift --osc.strictSSL=false",
-    "test": "tape test/*-test.js"
+    "start": "PORT=8080 node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bucharest-gold/nodejs-rest-http.git"
   },
   "files": [
     "package.json",
     "app.js",
     "public",
-    "bin"
+    "bin",
+    "LICENSE"
   ],
+  "bugs": {
+    "url": "https://github.com/bucharest-gold/nodejs-rest-http/issues"
+  },
+  "homepage": "https://github.com/bucharest-gold/nodejs-rest-http",
+  "devDependencies": {
+    "coveralls": "^2.13.1",
+    "eslint": "~3.8.1",
+    "eslint-config-semistandard": "~7.0.0",
+    "eslint-config-standard": "~6.2.0",
+    "eslint-plugin-promise": "~3.3.0",
+    "eslint-plugin-react": "~6.4.1",
+    "eslint-plugin-standard": "~2.0.1",
+    "nodeshift": "~0.3.0",
+    "nsp": "~2.6.2",
+    "nyc": "~10.3.2",
+    "standard-version": "^3.0.0",
+    "supertest": "^3.0.0",
+    "szero": "^0.7.1",
+    "tap-spec": "~4.1.1",
+    "tape": "~4.6.2"
+  },
   "dependencies": {
     "body-parser": "~1.17.1",
     "debug": "~2.6.3",
     "express": "^4.15.3"
-  },
-  "devDependencies": {
-    "nodeshift": "^0.3.0",
-    "supertest": "^3.0.0",
-    "tape": "^4.6.3"
   }
 }
