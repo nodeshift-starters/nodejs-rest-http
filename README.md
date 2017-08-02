@@ -2,3 +2,6 @@
 
 
 http://appdev.openshift.io/docs/nodejs-runtime.html
+
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/bucharest-gold/nodejs-rest-http.svg)](https://greenkeeper.io/)
