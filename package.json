@@ -50,8 +50,8 @@
     "tape": "~4.8.0"
   },
   "dependencies": {
-    "body-parser": "~1.18.0",
-    "debug": "~3.0.0",
-    "express": "^4.15.3"
+    "body-parser": "^1.18.2",
+    "debug": "^3.1.0",
+    "express": "^4.16.0"
   }
 }
