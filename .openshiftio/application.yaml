@@ -97,6 +97,7 @@ objects:
   metadata:
     name: nodejs-rest-http
     labels:
+      app: nodejs-rest-http
       provider: nodeshift
       project: nodejs-rest-http
       version: 1.0.0
@@ -126,11 +127,13 @@ objects:
                 protocol: TCP
       metadata:
         labels:
+          app: nodejs-rest-http
           project: nodejs-rest-http
           provider: nodeshift
           version: 1.0.0
     replicas: 1
     selector:
+      app: nodejs-rest-http
       project: nodejs-rest-http
       provider: nodeshift
     triggers:
