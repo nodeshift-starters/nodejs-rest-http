@@ -1,10 +1,11 @@
 const test = require('tape');
-const openshiftTestAssistant = require('openshift-test-assistant');
+const OpenshiftTestAssistant = require('openshift-test-assistant');
+const openshiftAssistant = new OpenshiftTestAssistant();
 const path = require('path');
 const request = require('supertest');
 
 test('setup', (t) => {
-  openshiftTestAssistant.deploy({
+  openshiftAssistant.deploy({
     'projectLocation': path.join(__dirname, '/..'),
     'strictSSL': false
   }).then(() => {
@@ -17,11 +18,11 @@ test('setup', (t) => {
 });
 
 test('test openshift greeting with no query param', (t) => {
-  if (!openshiftTestAssistant.isReady()) {
+  if (!openshiftAssistant.isReady()) {
     t.skip();
     t.end();
   } else {
-    request(openshiftTestAssistant.getRoute())
+    request(openshiftAssistant.getRoute())
       .get('/api/greeting')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -37,11 +38,11 @@ test('test openshift greeting with no query param', (t) => {
 });
 
 test('test openshift greeting with query param', (t) => {
-  if (!openshiftTestAssistant.isReady()) {
+  if (!openshiftAssistant.isReady()) {
     t.skip();
     t.end();
   } else {
-    request(openshiftTestAssistant.getRoute())
+    request(openshiftAssistant.getRoute())
       .get('/api/greeting?name=Luke')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -57,13 +58,11 @@ test('test openshift greeting with query param', (t) => {
 });
 
 test('teardown', (t) => {
-  openshiftTestAssistant.undeploy({
-    'projectLocation': path.join(__dirname, '/..'),
-    'strictSSL': false
-  }).then(() => {
-    t.end();
-  }).catch(reason => {
-    t.fail(reason);
-    t.end();
-  });
+  openshiftAssistant.undeploy()
+    .then(() => {
+      t.end();
+    }).catch(reason => {
+      t.fail(reason);
+      t.end();
+    });
 });
