@@ -1,19 +1,14 @@
 const OpenshiftTestAssistant = require('openshift-test-assistant');
 const openshiftAssistant = new OpenshiftTestAssistant();
-const path = require('path');
-const request = require('supertest');
 const test = require('ava');
 
 test.before('setup', () => {
-  return openshiftAssistant.deploy({
-    'projectLocation': path.join(__dirname, '/..'),
-    'strictSSL': false
-  });
+  return openshiftAssistant.deploy();
 });
 
 test('test openshift greeting with no query param', async t => {
   t.plan(1);
-  const response = await request(openshiftAssistant.getRoute())
+  const response = await openshiftAssistant.createRequest()
     .get('/api/greeting')
     .expect('Content-Type', /json/)
     .expect(200);
@@ -22,7 +17,7 @@ test('test openshift greeting with no query param', async t => {
 
 test('test openshift greeting with query param', async t => {
   t.plan(1);
-  const response = await request(openshiftAssistant.getRoute())
+  const response = await openshiftAssistant.createRequest()
     .get('/api/greeting?name=Luke')
     .expect('Content-Type', /json/)
     .expect(200);
