@@ -5,7 +5,9 @@
   "license": "Apache-2.0",
   "scripts": {
     "test": "tape test/*.js | tap-spec",
-    "lint": "eslint test/*.js app.js bin/*",
+    "test:integration": "tape test/integration/*.js | tap-spec",
+    "test:integration:undeploy": "nodeshift --strictSSL=false undeploy",
+    "lint": "eslint test/**/*.js app.js bin/*",
     "prepare": "echo 'To confirm CVE compliance, run \"npm run security-check\"' ",
     "security-check": "nsp check",
     "coverage": "nyc npm test",
@@ -53,6 +55,7 @@
     "nodeshift": "^1.4.1",
     "nsp": "~3.2.1",
     "nyc": "~11.6.0",
+    "rhoaster": "^0.1.0",
     "standard-version": "^4.3.0",
     "supertest": "^3.0.0",
     "szero": "^1.0.0",
