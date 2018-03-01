@@ -39,6 +39,10 @@ async function updateApplicationYaml () {
       object.metadata.labels.version = packagejson.version;
     }
 
+    if (object.kind === 'DeploymentConfig') {
+      object.spec.template.metadata.labels.version = packagejson.version; // probably should do a better check here
+    }
+
     return object;
   });
 
