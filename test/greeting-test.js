@@ -9,7 +9,7 @@ test('test out greeting route with no query param', (t) => {
     .expect('Content-Type', /json/)
     .expect(200)
     .then(response => {
-      t.equal(response.body.content, 'Hello, World');
+      t.equal(response.body.content, 'Hello, World!');
       t.end();
     });
 });

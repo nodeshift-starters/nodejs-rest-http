@@ -32,7 +32,7 @@ app.use('/licenses', express.static(path.join(__dirname, 'licenses')));
 
 app.use('/api/greeting', (request, response) => {
   const name = request.query ? request.query.name : undefined;
-  response.send({content: `Hello, ${name || 'World'}`});
+  response.send({content: `Hello, ${name || 'World!'}`});
 });
 
 module.exports = app;
