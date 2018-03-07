@@ -1,6 +1,6 @@
 {
   "name": "nodejs-rest-http",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Red Hat, Inc.",
   "license": "Apache-2.0",
   "scripts": {
@@ -19,8 +19,8 @@
   },
   "standard-version": {
     "scripts": {
-      "postbump": "node release.js",
-      "precommit": "git add .openshiftio/application.yaml"
+      "postbump": "npm run postinstall && node release.js",
+      "precommit": "git add .openshiftio/application.yaml licenses/"
     }
   },
   "repository": {
