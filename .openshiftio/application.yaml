@@ -81,7 +81,7 @@ objects:
         expose: 'true'
         project: nodejs-rest-http
         provider: nodeshift
-        version: 1.2.0
+        version: 1.2.1
       name: nodejs-rest-http
     spec:
       ports:
@@ -100,7 +100,7 @@ objects:
         app: nodejs-rest-http
         provider: nodeshift
         project: nodejs-rest-http
-        version: 1.2.0
+        version: 1.2.1
     spec:
       template:
         spec:
@@ -130,7 +130,7 @@ objects:
             app: nodejs-rest-http
             project: nodejs-rest-http
             provider: nodeshift
-            version: 1.2.0
+            version: 1.2.1
       replicas: 1
       selector:
         app: nodejs-rest-http
@@ -152,7 +152,7 @@ objects:
       labels:
         project: nodejs-rest-http
         provider: nodeshift
-        version: 1.2.0
+        version: 1.2.1
       name: nodejs-rest-http
     spec:
       port:

@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/bucharest-gold/nodejs-rest-http/compare/v1.2.0...v1.2.1) (2018-03-07)
+
+
+### Bug Fixes
+
+* **package:** need to run the licenser after the version bump ([f9ac4d3](https://github.com/bucharest-gold/nodejs-rest-http/commit/f9ac4d3))
+* **package:** version should be 1.2.0 ([59f215c](https://github.com/bucharest-gold/nodejs-rest-http/commit/59f215c))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/bucharest-gold/nodejs-rest-http/compare/v1.1.1...v1.2.0) (2018-03-07)
 
