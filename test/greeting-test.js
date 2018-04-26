@@ -3,7 +3,7 @@ const supertest = require('supertest');
 
 const app = require('../app');
 
-test('test out greeting route with no query param', (t) => {
+test('test out greeting route with no query param', t => {
   supertest(app)
     .get('/api/greeting')
     .expect('Content-Type', /json/)
@@ -14,7 +14,7 @@ test('test out greeting route with no query param', (t) => {
     });
 });
 
-test('test out greeting route with a query param', (t) => {
+test('test out greeting route with a query param', t => {
   supertest(app)
     .get('/api/greeting?name=Luke')
     .expect('Content-Type', /json/)
