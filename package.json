@@ -37,7 +37,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/bucharest-gold/nodejs-rest-http.git"
+    "url": "git://github.com/nodeshift-starters/nodejs-rest-http.git"
   },
   "files": [
     "package.json",
@@ -48,9 +48,9 @@
     "licenses"
   ],
   "bugs": {
-    "url": "https://github.com/bucharest-gold/nodejs-rest-http/issues"
+    "url": "https://github.com/nodeshift-starters/nodejs-rest-http/issues"
   },
-  "homepage": "https://github.com/bucharest-gold/nodejs-rest-http",
+  "homepage": "https://github.com/nodeshift-starters/nodejs-rest-http",
   "devDependencies": {
     "coveralls": "^3.0.0",
     "js-yaml": "^3.10.0",
