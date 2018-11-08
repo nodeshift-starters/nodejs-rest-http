@@ -16,7 +16,7 @@
         </dependency>
         <dependency>
             <packageName>debug</packageName>
-            <version>3.1.0</version>
+            <version>4.0.1</version>
             <licenses>
                 <license>
                     <name>MIT License</name>
