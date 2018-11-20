@@ -39,7 +39,7 @@ objects:
   - apiVersion: v1
     kind: ImageStream
     metadata:
-      name: runtime
+      name: runtime-centos7-s2i-nodejs-10-x
     spec:
       tags:
         - name: latest
@@ -67,7 +67,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: 'runtime:latest'
+            name: 'runtime-centos7-s2i-nodejs-10-x:latest'
           incremental: true
       triggers:
         - github:
