@@ -20,6 +20,10 @@ parameters:
     displayName: Source Directory
     value: .
     required: true
+  - name: RELEASE_VERSION
+    description: The location within the source repo of the application
+    displayName: release version
+    required: true
   - name: GITHUB_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook.
     displayName: GitHub Webhook Secret
@@ -50,7 +54,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: 'nodejs-rest-http:latest'
+          name: 'nodejs-rest-http:${RELEASE_VERSION}'
       postCommit: {}
       resources: {}
       source:
@@ -117,7 +121,7 @@ objects:
                   scheme: HTTP
                 initialDelaySeconds: 60
                 periodSeconds: 30
-              image: nodejs-rest-http
+              image: nodejs-rest-http:${RELEASE_VERSION}
               name: nodejs-rest-http
               securityContext:
                 privileged: false
@@ -145,7 +149,7 @@ objects:
               - nodejs-rest-http
             from:
               kind: ImageStreamTag
-              name: 'nodejs-rest-http:latest'
+              name: 'nodejs-rest-http:${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Route
     metadata:
