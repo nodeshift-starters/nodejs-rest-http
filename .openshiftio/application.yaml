@@ -23,7 +23,7 @@ parameters:
   - name: RELEASE_VERSION
     description: The version used to tag image artifacts
     displayName: release version
-    value: '1'
+    value: '2.0.1'
     required: true
   - name: GITHUB_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook.
