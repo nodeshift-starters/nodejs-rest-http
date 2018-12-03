@@ -20,6 +20,11 @@ parameters:
     displayName: Source Directory
     value: .
     required: true
+  - name: RELEASE_VERSION
+    description: The version used to tag image artifacts
+    displayName: release version
+    value: '2.0.1'
+    required: true
   - name: GITHUB_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook.
     displayName: GitHub Webhook Secret
@@ -35,7 +40,7 @@ objects:
   - apiVersion: v1
     kind: ImageStream
     metadata:
-      name: runtime
+      name: runtime-centos7-s2i-nodejs-10-x
     spec:
       tags:
         - name: latest
@@ -50,7 +55,7 @@ objects:
       output:
         to:
           kind: ImageStreamTag
-          name: 'nodejs-rest-http:latest'
+          name: 'nodejs-rest-http:${RELEASE_VERSION}'
       postCommit: {}
       resources: {}
       source:
@@ -63,7 +68,7 @@ objects:
         sourceStrategy:
           from:
             kind: ImageStreamTag
-            name: 'runtime:latest'
+            name: 'runtime-centos7-s2i-nodejs-10-x:latest'
           incremental: true
       triggers:
         - github:
@@ -117,7 +122,7 @@ objects:
                   scheme: HTTP
                 initialDelaySeconds: 60
                 periodSeconds: 30
-              image: nodejs-rest-http
+              image: nodejs-rest-http:${RELEASE_VERSION}
               name: nodejs-rest-http
               securityContext:
                 privileged: false
@@ -145,7 +150,7 @@ objects:
               - nodejs-rest-http
             from:
               kind: ImageStreamTag
-              name: 'nodejs-rest-http:latest'
+              name: 'nodejs-rest-http:${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Route
     metadata:
