@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v1.2.4...v1.3.0) (2018-12-20)
+
+
+### Features
+
+* Dynamic image tagging for deployments ([#120](https://github.com/nodeshift-starters/nodejs-rest-http/issues/120)) ([368848d](https://github.com/nodeshift-starters/nodejs-rest-http/commit/368848d))
+
+
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v1.2.3...v1.2.4) (2018-11-08)
 
