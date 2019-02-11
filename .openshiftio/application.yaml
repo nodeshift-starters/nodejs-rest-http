@@ -6,9 +6,19 @@ metadata:
     description: This template creates a Build Configuration using an S2I builder.
     tags: instant-app
 parameters:
+  - name: SUFFIX_NAME
+    description: The suffix name for the template objects
+    displayName: Suffix name
+    value: ''
+  - name: RELEASE_VERSION
+    description: The release version number of application
+    displayName: Release version
+    value: 2.1.0
+    required: true
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
     displayName: Source URL
+    value: https://github.com/nodeshift-starters/nodejs-rest-http
     required: true
   - name: SOURCE_REPOSITORY_REF
     description: The branch name for the application
@@ -20,11 +30,6 @@ parameters:
     displayName: Source Directory
     value: .
     required: true
-  - name: RELEASE_VERSION
-    description: The version used to tag image artifacts
-    displayName: release version
-    value: 2.0.1
-    required: true
   - name: GITHUB_WEBHOOK_SECRET
     description: A secret string used to configure the GitHub webhook.
     displayName: GitHub Webhook Secret
@@ -35,7 +40,7 @@ objects:
   - apiVersion: v1
     kind: ImageStream
     metadata:
-      name: nodejs-rest-http
+      name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec: {}
   - apiVersion: v1
     kind: ImageStream
@@ -50,7 +55,7 @@ objects:
   - apiVersion: v1
     kind: BuildConfig
     metadata:
-      name: nodejs-rest-http
+      name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       output:
         to:
@@ -86,8 +91,8 @@ objects:
         expose: 'true'
         project: nodejs-rest-http
         provider: nodeshift
-        version: 2.1.0
-      name: nodejs-rest-http
+        version: '${RELEASE_VERSION}'
+      name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       ports:
         - protocol: TCP
@@ -100,12 +105,12 @@ objects:
   - apiVersion: v1
     kind: DeploymentConfig
     metadata:
-      name: nodejs-rest-http
+      name: 'nodejs-rest-http${SUFFIX_NAME}'
       labels:
         app: nodejs-rest-http
         provider: nodeshift
         project: nodejs-rest-http
-        version: 2.1.0
+        version: '${RELEASE_VERSION}'
     spec:
       template:
         spec:
@@ -135,7 +140,7 @@ objects:
             app: nodejs-rest-http
             project: nodejs-rest-http
             provider: nodeshift
-            version: 2.1.0
+            version: '${RELEASE_VERSION}'
       replicas: 1
       selector:
         app: nodejs-rest-http
@@ -150,18 +155,18 @@ objects:
               - nodejs-rest-http
             from:
               kind: ImageStreamTag
-              name: 'nodejs-rest-http:${RELEASE_VERSION}'
+              name: 'nodejs-rest-http${SUFFIX_NAME}:${RELEASE_VERSION}'
   - apiVersion: v1
     kind: Route
     metadata:
       labels:
         project: nodejs-rest-http
         provider: nodeshift
-        version: 2.1.0
-      name: nodejs-rest-http
+        version: '${RELEASE_VERSION}'
+      name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       port:
         targetPort: 8080
       to:
         kind: Service
-        name: nodejs-rest-http
+        name: 'nodejs-rest-http${SUFFIX_NAME}'
