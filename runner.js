@@ -26,6 +26,6 @@ const options = {
 
 nodeshift.deploy(options).then(() => {
   console.log('Application Depoyed');
-}).catch(err => {
-  console.error('Error', err);
+}).catch(error => {
+  console.error('Error', error);
 });
