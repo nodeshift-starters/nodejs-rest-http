@@ -91,13 +91,8 @@ objects:
         expose: 'true'
         project: nodejs-rest-http
         provider: nodeshift
-<<<<<<< HEAD
-        version: 1.3.0
-      name: nodejs-rest-http
-=======
         version: '${RELEASE_VERSION}'
       name: 'nodejs-rest-http${SUFFIX_NAME}'
->>>>>>> e4fdff2... chore(package): Application yaml updates (#124)
     spec:
       ports:
         - protocol: TCP
@@ -115,11 +110,7 @@ objects:
         app: nodejs-rest-http
         provider: nodeshift
         project: nodejs-rest-http
-<<<<<<< HEAD
-        version: 1.3.0
-=======
         version: '${RELEASE_VERSION}'
->>>>>>> e4fdff2... chore(package): Application yaml updates (#124)
     spec:
       template:
         spec:
@@ -153,11 +144,7 @@ objects:
             app: nodejs-rest-http
             project: nodejs-rest-http
             provider: nodeshift
-<<<<<<< HEAD
-            version: 1.3.0
-=======
             version: '${RELEASE_VERSION}'
->>>>>>> e4fdff2... chore(package): Application yaml updates (#124)
       replicas: 1
       selector:
         app: nodejs-rest-http
@@ -179,13 +166,8 @@ objects:
       labels:
         project: nodejs-rest-http
         provider: nodeshift
-<<<<<<< HEAD
-        version: 1.3.0
-      name: nodejs-rest-http
-=======
         version: '${RELEASE_VERSION}'
       name: 'nodejs-rest-http${SUFFIX_NAME}'
->>>>>>> e4fdff2... chore(package): Application yaml updates (#124)
     spec:
       port:
         targetPort: 8080
