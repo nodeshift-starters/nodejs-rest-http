@@ -13,7 +13,7 @@ parameters:
   - name: RELEASE_VERSION
     description: The release version number of application
     displayName: Release version
-    value: 2.1.1
+    value: 3.0.0
     required: true
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
