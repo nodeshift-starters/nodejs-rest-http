@@ -12,7 +12,6 @@
     "coverage": "nyc npm test",
     "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls",
     "ci": "npm run lint && npm run coveralls",
-    "dependencyCheck": "szero . --ci",
     "release": "standard-version -a",
     "openshift": "nodeshift --strictSSL=false --imageTag=12.x",
     "postinstall": "license-reporter report -s && license-reporter save -s --xml licenses.xml",
@@ -58,7 +57,6 @@
     "rhoaster": "^0.2.0",
     "standard-version": "^6.0.1",
     "supertest": "^4.0.2",
-    "szero": "^1.0.0",
     "tap-spec": "~5.0.0",
     "tape": "~4.10.2",
     "xo": "~0.24.0"
