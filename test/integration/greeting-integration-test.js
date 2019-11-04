@@ -5,8 +5,7 @@ const supertest = require('supertest');
 const rhoaster = require('rhoaster');
 
 const testEnvironment = rhoaster({
-  deploymentName: 'nodejs-rest-http',
-  nodeVersion: '10.x'
+  deploymentName: 'nodejs-rest-http'
 });
 
 testEnvironment.deploy()
