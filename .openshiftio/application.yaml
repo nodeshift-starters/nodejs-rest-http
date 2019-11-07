@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: template.openshift.io/v1
 kind: Template
 metadata:
   name: launchpad-builder
@@ -37,12 +37,12 @@ parameters:
     from: '[a-zA-Z0-9]{40}'
     generate: expression
 objects:
-  - apiVersion: v1
+  - apiVersion: image.openshift.io/v1
     kind: ImageStream
     metadata:
       name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec: {}
-  - apiVersion: v1
+  - apiVersion: image.openshift.io/v1
     kind: ImageStream
     metadata:
       name: runtime-centos7-s2i-nodejs-12-x
@@ -52,7 +52,7 @@ objects:
           from:
             kind: DockerImage
             name: 'nodeshift/centos7-s2i-nodejs:12.x'
-  - apiVersion: v1
+  - apiVersion: build.openshift.io/v1
     kind: BuildConfig
     metadata:
       name: 'nodejs-rest-http${SUFFIX_NAME}'
@@ -102,7 +102,7 @@ objects:
         project: nodejs-rest-http
         provider: nodeshift
       type: ClusterIP
-  - apiVersion: v1
+  - apiVersion: apps.openshift.io/v1
     kind: DeploymentConfig
     metadata:
       name: 'nodejs-rest-http${SUFFIX_NAME}'
@@ -160,7 +160,7 @@ objects:
             from:
               kind: ImageStreamTag
               name: 'nodejs-rest-http${SUFFIX_NAME}:${RELEASE_VERSION}'
-  - apiVersion: v1
+  - apiVersion: route.openshift.io/v1
     kind: Route
     metadata:
       labels:
