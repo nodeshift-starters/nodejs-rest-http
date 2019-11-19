@@ -52,7 +52,7 @@
   "devDependencies": {
     "coveralls": "^3.0.0",
     "js-yaml": "^3.13.1",
-    "nodeshift": "~4.0.0",
+    "nodeshift": "~4.1.0",
     "nyc": "~14.1.1",
     "rhoaster": "^0.4.1",
     "standard-version": "^6.0.1",
