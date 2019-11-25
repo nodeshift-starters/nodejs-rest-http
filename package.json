@@ -6,7 +6,7 @@
   "scripts": {
     "test": "tape test/*.js | tap-spec",
     "test:integration": "tape test/integration/*.js | tap-spec",
-    "test:integration:undeploy": "nodeshift --strictSSL=false undeploy",
+    "test:integration:undeploy": "nodeshift undeploy",
     "lint": "xo",
     "prepare": "echo 'To confirm CVE compliance, run \"npm audit\"' ",
     "coverage": "nyc npm test",
