@@ -1,6 +1,13 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+### [2.1.2](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v2.1.1...v2.1.2) (2019-11-26)
+
+
+### Bug Fixes
+
+* issue with image address ([0404326](https://github.com/nodeshift-starters/nodejs-rest-http/commit/040432636514405d54217d4fd90dee9446a795a1))
 
 ## [2.1.1](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v2.1.0...v2.1.1) (2019-04-15)
 
