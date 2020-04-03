@@ -92,6 +92,7 @@ objects:
         project: nodejs-rest-http
         provider: nodeshift
         version: '${RELEASE_VERSION}'
+        'app.openshift.io/runtime': 'nodejs'
       name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       ports:
@@ -111,6 +112,7 @@ objects:
         provider: nodeshift
         project: nodejs-rest-http
         version: '${RELEASE_VERSION}'
+        'app.openshift.io/runtime': 'nodejs'
     spec:
       template:
         spec:
@@ -167,6 +169,7 @@ objects:
         project: nodejs-rest-http
         provider: nodeshift
         version: '${RELEASE_VERSION}'
+        'app.openshift.io/runtime': 'nodejs'
       name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       port:
