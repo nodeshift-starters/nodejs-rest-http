@@ -13,7 +13,7 @@ parameters:
   - name: RELEASE_VERSION
     description: The release version number of application
     displayName: Release version
-    value: 3.0.1
+    value: 3.0.2
     required: true
   - name: SOURCE_REPOSITORY_URL
     description: The source URL for the application
@@ -92,7 +92,7 @@ objects:
         project: nodejs-rest-http
         provider: nodeshift
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
       name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       ports:
@@ -112,7 +112,7 @@ objects:
         provider: nodeshift
         project: nodejs-rest-http
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
     spec:
       template:
         spec:
@@ -169,7 +169,7 @@ objects:
         project: nodejs-rest-http
         provider: nodeshift
         version: '${RELEASE_VERSION}'
-        'app.openshift.io/runtime': 'nodejs'
+        app.openshift.io/runtime: nodejs
       name: 'nodejs-rest-http${SUFFIX_NAME}'
     spec:
       port:
