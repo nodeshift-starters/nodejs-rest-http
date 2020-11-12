@@ -1,9 +1,12 @@
 # Default values for nodejs-rest-http-helm.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
+# If you app doesnt make use of certain parts (e.g. service accounts) just leave them blank with `{}`
 
 replicaCount: 1
 
+
+# Change this to your image if you wish to use that instead
 image:
   repository: nodejs-rest-http
   pullPolicy: IfNotPresent
@@ -53,17 +56,13 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
-resources: {}
-  # We usually recommend not to specify default resources and to leave this as a conscious
-  # choice for the user. This also increases chances charts run on environments with little
-  # resources, such as Minikube. If you do want to specify resources, uncomment the following
-  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #   cpu: 100m
-  #   memory: 128Mi
-  # requests:
-  #   cpu: 100m
-  #   memory: 128Mi
+resources:
+   limits:
+     cpu: 400m
+     memory: 600Mi
+   requests:
+     cpu: 200m
+     memory: 300Mi
 
 autoscaling:
   enabled: false
