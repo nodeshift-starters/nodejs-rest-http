@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v3.0.2...v4.0.0) (2020-11-26)
+
+
+### Features
+
+* upgrade tape from 4.13.2 to 5.0.1 ([#178](https://github.com/nodeshift-starters/nodejs-rest-http/issues/178)) ([71a9bc5](https://github.com/nodeshift-starters/nodejs-rest-http/commit/71a9bc5f5e1875307e54c406ede9ea0086de70d9))
+
+
+### Bug Fixes
+
+* package.json & package-lock.json to reduce vulnerabilities ([#173](https://github.com/nodeshift-starters/nodejs-rest-http/issues/173)) ([d7ccc30](https://github.com/nodeshift-starters/nodejs-rest-http/commit/d7ccc30d22e2a92db3725a68185d620362aa35b6))
+* package.json & package-lock.json to reduce vulnerabilities ([#175](https://github.com/nodeshift-starters/nodejs-rest-http/issues/175)) ([0bd627b](https://github.com/nodeshift-starters/nodejs-rest-http/commit/0bd627bd13382244b8ddbd961e3929ed6456bf4c))
+* upgrade coveralls from 3.0.11 to 3.1.0 ([#179](https://github.com/nodeshift-starters/nodejs-rest-http/issues/179)) ([d7a92e0](https://github.com/nodeshift-starters/nodejs-rest-http/commit/d7a92e0cfa4689d1a9f88d9ad38db67201dd18f5))
+* upgrade coveralls from 3.0.9 to 3.0.11 ([#169](https://github.com/nodeshift-starters/nodejs-rest-http/issues/169)) ([8b4c0b9](https://github.com/nodeshift-starters/nodejs-rest-http/commit/8b4c0b9690d77576981f35092a6b05c35efa8987))
+* upgrade debug from 4.1.1 to 4.2.0 ([#171](https://github.com/nodeshift-starters/nodejs-rest-http/issues/171)) ([a77b41b](https://github.com/nodeshift-starters/nodejs-rest-http/commit/a77b41bb59683f6e88441bfe113496e0344d5a9c))
+* upgrade nodeshift from 6.0.2 to 6.2.0 ([#180](https://github.com/nodeshift-starters/nodejs-rest-http/issues/180)) ([6a65ab4](https://github.com/nodeshift-starters/nodejs-rest-http/commit/6a65ab479d20a9b3037c0f5aec4353c9f59728c6))
+
 ### [3.0.2](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v3.0.1...v3.0.2) (2020-04-27)
 
 ### [3.0.1](https://github.com/nodeshift-starters/nodejs-rest-http/compare/v3.0.0...v3.0.1) (2019-11-26)
