@@ -5,6 +5,7 @@
 
 replicaCount: 1
 
+name: nodejs-rest-http-example
 
 # Change this to your image if you wish to use that instead
 image:
@@ -13,9 +14,18 @@ image:
   # Overrides the image tag whose default is the chart appVersion.
   tag: 1.0.0
 
-imagePullSecrets: []
+buildtype: Kubernetes
+#Kubernetes or Openshift
+
+imagePullSecrets: 
+  - name: my-pull-secret
 nameOverride: ""
 fullnameOverride: ""
+
+uri: https://github.com/AshCripps/nodejs-rest-http/tree/add-helm
+ref: master
+contextDir:
+
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -38,6 +48,8 @@ securityContext: {}
   # readOnlyRootFilesystem: true
   # runAsNonRoot: true
   # runAsUser: 1000
+
+replicas: 1
 
 service:
   type: ClusterIP

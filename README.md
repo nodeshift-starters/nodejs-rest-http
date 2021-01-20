@@ -68,7 +68,10 @@ Once the image is built, you can deploy it to you kube cluster using helm. From 
 helm install test-app ./nodejs-rest-http-helm
 ```
 
-This deploys the app to your kube cluster and displayed some commands which you need to run inorder to be able to reach the application. Just copy paste and run them.
+This deploys the app to your kube cluster and will output a series of commands depending on what options you have chosen (options like did you set up an ingress and what routing are you using). 
+
+
+An example of the output can be seen below, this example gives you commands to set the auto-generated pod name and the container port to environment variable so you can just run one command which set up the port-forwading for that port. This allows you to access and communicate with the pod from outside the kubernetes cluster. 
 
 
 ```sh
@@ -90,3 +93,6 @@ To undeploy the app simply run:
 ```sh
 helm uninstall test-app
 ```
+
+
+Openshift vs Kube - Command line option

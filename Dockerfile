@@ -1,11 +1,6 @@
-FROM node:12
+FROM registry.redhat.io/ubi8/nodejs-12:latest
 
 WORKDIR "/app"
-
-RUN apt-get update \
- && apt-get dist-upgrade -y \
- && apt-get clean \
- && echo 'Finished installing dependencies'
 
 COPY package*.json ./
 
@@ -17,6 +12,6 @@ ENV PORT 8080
 
 EXPOSE 8080
 
-USER node
+USER root
 
 CMD ["npm", "start"]
