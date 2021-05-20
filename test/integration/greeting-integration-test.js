@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 'use strict';
 
-const test = require('tape');
+const assert = require('assert');
 const supertest = require('supertest');
 const rhoaster = require('rhoaster');
 
@@ -9,33 +10,33 @@ const testEnvironment = rhoaster({
   dockerImage: 'registry.access.redhat.com/ubi8/nodejs-12'
 });
 
-testEnvironment.deploy()
-  .then(runTests)
-  .then(_ => test.onFinish(testEnvironment.undeploy))
-  .catch(console.error);
+describe('Greeting route', () => {
+  let route;
+  before(async function () {
+    this.timeout(0);
+    route = await testEnvironment.deploy();
+  });
 
-function runTests (route) {
-  test('/api/greeting', t => {
-    t.plan(1);
-    supertest(route)
+  it('/api/greeting', async () => {
+    const { body } = await supertest(route)
       .get('/api/greeting')
-      .expect(200)
       .expect('Content-Type', /json/)
-      .then(response => {
-        t.equal(response.body.content, 'Hello, World!', 'should return the Hello, World! Greeting');
-        t.end();
-      });
+      .expect(200);
+
+    assert.strictEqual(body.content, 'Hello, World!');
   });
 
-  test('/api/greeting with query param', t => {
-    t.plan(1);
-    supertest(route)
+  it('/api/greeting with query param', async () => {
+    const { body } = await supertest(route)
       .get('/api/greeting?name=luke')
-      .expect(200)
       .expect('Content-Type', /json/)
-      .then(response => {
-        t.equal(response.body.content, 'Hello, luke', 'should return the Hello, luke Greeting');
-        t.end();
-      });
+      .expect(200);
+
+    assert.strictEqual(body.content, 'Hello, luke');
   });
-}
+
+  after(async function () {
+    this.timeout(0);
+    await testEnvironment.undeploy();
+  });
+});

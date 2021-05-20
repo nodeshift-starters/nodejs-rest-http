@@ -1,26 +1,25 @@
-const test = require('tape');
+/* eslint-disable no-undef */
+const assert = require('assert');
 const supertest = require('supertest');
 
 const app = require('../app');
 
-test('test out greeting route with no query param', t => {
-  supertest(app)
-    .get('/api/greeting')
-    .expect('Content-Type', /json/)
-    .expect(200)
-    .then(response => {
-      t.equal(response.body.content, 'Hello, World!');
-      t.end();
-    });
-});
+describe('Greeting route', () => {
+  it('with no query param', async () => {
+    const { body } = await supertest(app)
+      .get('/api/greeting')
+      .expect('Content-Type', /json/)
+      .expect(200);
 
-test('test out greeting route with a query param', t => {
-  supertest(app)
-    .get('/api/greeting?name=Luke')
-    .expect('Content-Type', /json/)
-    .expect(200)
-    .then(response => {
-      t.equal(response.body.content, 'Hello, Luke');
-      t.end();
-    });
+    assert.strictEqual(body.content, 'Hello, World!');
+  });
+
+  it('with a query param', async () => {
+    const { body } = await supertest(app)
+      .get('/api/greeting?name=Luke')
+      .expect('Content-Type', /json/)
+      .expect(200);
+
+    assert.strictEqual(body.content, 'Hello, Luke');
+  });
 });
