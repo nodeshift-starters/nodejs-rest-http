@@ -1,5 +1,5 @@
  ![Node.js CI](https://github.com/nodeshift-starters/nodejs-rest-http/workflows/ci/badge.svg)
- [![Coverage Status](https://coveralls.io/repos/github/nodeshift-starters/nodejs-rest-http/badge.svg?branch=master)](https://coveralls.io/github/nodeshift-starters/nodejs-rest-http?branch=master)
+ [![codecov](https://codecov.io/gh/nodeshift-starters/nodejs-rest-http/branch/master/graph/badge.svg?token=3uYea6eZu8)](https://codecov.io/gh/nodeshift-starters/nodejs-rest-http)
 
 ## Running The Example
 
