@@ -8,7 +8,7 @@
     "test": "nyc --reporter=lcov mocha",
     "prepare": "echo 'To confirm CVE compliance, run \"npm audit\"' ",
     "release": "standard-version -a",
-    "openshift": "nodeshift --dockerImage=registry.access.redhat.com/ubi8/nodejs-14",
+    "openshift": "nodeshift --dockerImage=registry.access.redhat.com/ubi8/nodejs-16",
     "start": "node ."
   },
   "engines": {
