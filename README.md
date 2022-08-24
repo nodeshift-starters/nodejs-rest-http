@@ -36,18 +36,3 @@ $ oc new-project my-example-project # Create a project to deploy to
 $ npm run openshift # Deploys the example app
 ```
 
-This app has an example of integration test using an [integration test tool for Node.js apps on OpenShift](https://github.com/nodeshift/rhoaster)
-
-Once you started your local OpenShift instance you can check it out by running the following commands:
-
-```
-npm run test:integration
-```
-
-It will deploy the app to local OpenShift and run the tests located on `test/integration` directory.
-
-```
-npm run test:integration:undeploy
-```
-
-Performs undeploy of the app inside local OpenShift.
