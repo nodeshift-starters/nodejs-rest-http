@@ -42,11 +42,14 @@ jaeger-all-in-one-inmemory-query                ClusterIP   10.217.5.32   <none>
 
 We are going to use `jaeger-all-in-one-inmemory-collector` + our namespace service `opentelemtry-js-rhosdt.svc` for the `JaegerExporter` endpoint. Resulting in the following:
 
+(content from the [tracing.js](./tracing.js) file)
 ```js
 const exporter = new JaegerExporter({
   endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemtry-js-rhosdt.svc:14268/api/traces'
 });
 ```
+
+7. Deploy the example to OpenShift local
 
 ```
 npm install
