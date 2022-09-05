@@ -1,38 +1,49 @@
  ![Node.js CI](https://github.com/nodeshift-starters/nodejs-rest-http/workflows/ci/badge.svg)
  [![codecov](https://codecov.io/gh/nodeshift-starters/nodejs-rest-http/branch/main/graph/badge.svg?token=3uYea6eZu8)](https://codecov.io/gh/nodeshift-starters/nodejs-rest-http)
 
-## Running The Example
+## OpenTelemetry with OpenShift Distributed Tracing Platform
 
-You can run this example as node processes on your localhost, as pods on a local
-[OpenShift Local](https://developers.redhat.com/products/openshift-local/overview) installation.
-
-### Localhost
-
-To run the basic application on your local machine, just run the commands bellow:
+Start OpenShift local and create a new project.
 
 ```
-$ npm install
-$ npm start
+$ crc setup
+$ crc start
+$ eval $(crc oc-env)
+$ oc login -u developer
+$ oc new-project opentelemetry-js-rhosdt
+```
+### Install the OpenShift Distributed Tracing Platform Operator
+
+1. Login as kubeadmin
+2. Go to OperatorHub
+3. Search for Jaeger
+4. Click on `Red Hat OpenShift distributed tracing platform` and follow the instructions to install.
+
+![kubeadmin-login-operatorhub](images/kubeadmin.png)
+
+5. Login as developer, go to Topology and add the Jaeger Operator to the project.
+
+![operator](images/operator.png)
+
+![jaeger](images/jaeger.png)
+
+![topology](images/topology.png)
+
+6. Add the URL for the Jaeger 
+
+```
+❯ oc get svc
+NAME                                            TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                                                    AGE
+jaeger-all-in-one-inmemory-agent                ClusterIP   None          <none>        5775/UDP,5778/TCP,6831/UDP,6832/UDP                        51m
+jaeger-all-in-one-inmemory-collector            ClusterIP   10.217.5.95   <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   51m
+jaeger-all-in-one-inmemory-collector-headless   ClusterIP   None          <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   51m
+jaeger-all-in-one-inmemory-query                ClusterIP   10.217.5.32   <none>        443/TCP,16685/TCP                                          51m
 ```
 
-If you want debug information, you can set `DEBUG` environment variable and start the application:
+We are going to use `jaeger-all-in-one-inmemory-collector` 
 
 ```
-$ DEBUG=* npm start
-```
-
-This will launch the application on port 8080.
-
-### OpenShift Local
-
-OpenShift Local should be started, and you should be logged in with a currently
-active project. Then run the `npm run openshift` command.
-
-```sh
-$ crc setup # Set-up the hypervisor
-$ crc start # Initialize the openshift cluster
-$ oc login -u developer # Login
-$ oc new-project my-example-project # Create a project to deploy to
-$ npm run openshift # Deploys the example app
+npm install
+npm run openshift
 ```
 
