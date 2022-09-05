@@ -36,3 +36,7 @@ $ oc new-project my-example-project # Create a project to deploy to
 $ npm run openshift # Deploys the example app
 ```
 
+### OpenTelemetry with OpenShift Distributed Tracing Platform
+
+Clone this repository, switch the branch to `opentelemetry-js-rhosdt`
+and follow the instructions on README.md
