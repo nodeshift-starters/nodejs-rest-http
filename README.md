@@ -29,7 +29,7 @@ $ oc new-project opentelemetry-js-rhosdt
 
 ![topology](images/topology.png)
 
-6. Add the URL for the Jaeger 
+6. Configure the URL for the JaegerExporter endpoint
 
 ```
 ❯ oc get svc
@@ -40,7 +40,13 @@ jaeger-all-in-one-inmemory-collector-headless   ClusterIP   None          <none>
 jaeger-all-in-one-inmemory-query                ClusterIP   10.217.5.32   <none>        443/TCP,16685/TCP                                          51m
 ```
 
-We are going to use `jaeger-all-in-one-inmemory-collector` 
+We are going to use `jaeger-all-in-one-inmemory-collector` + our namespace service `opentelemtry-js-rhosdt.svc` for the `JaegerExporter` endpoint. Resulting in the following:
+
+```js
+const exporter = new JaegerExporter({
+  endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemtry-js-rhosdt.svc:14268/api/traces'
+});
+```
 
 ```
 npm install
