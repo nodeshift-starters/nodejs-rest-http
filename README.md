@@ -56,3 +56,6 @@ npm install
 npm run openshift
 ```
 
+8. When you login on Jaeger UI you can see the result like this:
+
+![result](images/result.png)
