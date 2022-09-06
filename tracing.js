@@ -9,7 +9,7 @@ const { HttpInstrumentation } = require('@opentelemetry/instrumentation-http');
 const { registerInstrumentations } = require('@opentelemetry/instrumentation');
 
 const exporter = new JaegerExporter({
-  endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemtry-js-rhosdt.svc:14268/api/traces'
+  endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemetry-js-rhosdt.svc:14268/api/traces'
 });
 
 const provider = new NodeTracerProvider({

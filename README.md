@@ -33,19 +33,23 @@ $ oc new-project opentelemetry-js-rhosdt
 
 ```
 ❯ oc get svc
-NAME                                            TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)                                                    AGE
-jaeger-all-in-one-inmemory-agent                ClusterIP   None          <none>        5775/UDP,5778/TCP,6831/UDP,6832/UDP                        51m
-jaeger-all-in-one-inmemory-collector            ClusterIP   10.217.5.95   <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   51m
-jaeger-all-in-one-inmemory-collector-headless   ClusterIP   None          <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   51m
-jaeger-all-in-one-inmemory-query                ClusterIP   10.217.5.32   <none>        443/TCP,16685/TCP                                          51m
+NAME                                            TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)                                                    AGE
+jaeger-all-in-one-inmemory-agent                ClusterIP   None           <none>        5775/UDP,5778/TCP,6831/UDP,6832/UDP                        2m16s
+jaeger-all-in-one-inmemory-collector            ClusterIP   10.217.5.57    <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   2m16s
+jaeger-all-in-one-inmemory-collector-headless   ClusterIP   None           <none>        9411/TCP,14250/TCP,14267/TCP,14268/TCP,4317/TCP,4318/TCP   2m16s
+jaeger-all-in-one-inmemory-query                ClusterIP   10.217.5.219   <none>        443/TCP,16685/TCP                                          2m16s
 ```
 
-We are going to use `jaeger-all-in-one-inmemory-collector` + our namespace service `opentelemtry-js-rhosdt.svc` for the `JaegerExporter` endpoint. Resulting in the following:
+We are going to use `jaeger-all-in-one-inmemory-collector` + 
+our namespace service `opentelemetry-js-rhosdt.svc` for the
+ `JaegerExporter` endpoint. 
+ 
+Resulting in the following:
 
 (content from the [tracing.js](./tracing.js) file)
 ```js
 const exporter = new JaegerExporter({
-  endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemtry-js-rhosdt.svc:14268/api/traces'
+  endpoint: 'http://jaeger-all-in-one-inmemory-collector.opentelemetry-js-rhosdt.svc:14268/api/traces'
 });
 ```
 
