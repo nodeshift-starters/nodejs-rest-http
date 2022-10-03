@@ -15,13 +15,12 @@ $ npm install
 $ npm start
 ```
 
-If you want debug information, you can set `DEBUG` environment variable and start the application:
-
-```
-$ DEBUG=* npm start
-```
-
 This will launch the application on port 8080.
+
+Other options:
+
+* `npm run dev` same as `npm start` but with pretty output log.
+* `npm run dev:debug` shows debug information.
 
 ### OpenShift Local
 
@@ -38,5 +37,4 @@ $ npm run openshift # Deploys the example app
 
 ### OpenTelemetry with OpenShift Distributed Tracing Platform
 
-This [link](./OTEL.md) contains instructions on how to install the 
-OpenShift Distributed Tracing Platform and enable tracing. 
+This [link](./OTEL.md) contains instructions on how to install the OpenShift Distributed Tracing Platform and enable tracing.
