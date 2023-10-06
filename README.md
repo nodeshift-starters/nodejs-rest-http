@@ -8,7 +8,7 @@ You can run this example as node processes on your localhost, as pods on a local
 
 ### Localhost
 
-To run the basic application on your local machine, just run the commands bellow:
+To run the basic application on your local machine, just run the commands below:
 
 ```
 $ npm install
