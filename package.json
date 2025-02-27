@@ -29,7 +29,9 @@
     "tracing.js",
     "public",
     "bin",
-    "LICENSE"
+    "LICENSE",
+    "Dockerfile",
+    ".dockerignore"
   ],
   "bugs": {
     "url": "https://github.com/nodeshift-starters/nodejs-rest-http/issues"
