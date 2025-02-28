@@ -8,14 +8,16 @@
     "test": "nyc --reporter=lcov mocha",
     "prepare": "echo 'To confirm CVE compliance, run \"npm audit\"' ",
     "release": "standard-version -a",
-    "openshift": "nodeshift --dockerImage=registry.access.redhat.com/ubi8/nodejs-18",
+    "openshift": "nodeshift",
+    "openshift:dockerbuild": "nodeshift --build.strategy Docker",
+    "openshift:cleanup": "nodeshift undeploy --removeAll",
     "openshift:enable:trace": "nodeshift --deploy.env NODE_OPTIONS='--require ./tracing.js' --dockerImage=registry.access.redhat.com/ubi8/nodejs-18",
     "start": "node .",
     "dev": "node . | npx pino-pretty",
     "dev:debug": "DEBUG=* node . "
   },
   "engines": {
-    "node": "18 || 16"
+    "node": "22 || 20 ||18"
   },
   "main": "./bin/www",
   "repository": {
@@ -41,7 +43,6 @@
     "eslint": "^8.22.0",
     "eslint-config-semistandard": "^17.0.0",
     "mocha": "^10.0.0",
-    "nodeshift": "~8.7.0",
     "nyc": "^15.1.0",
     "standard-version": "^9.5.0",
     "supertest": "~6.2.4"
@@ -56,8 +57,9 @@
     "@opentelemetry/sdk-trace-base": "^1.7.0",
     "@opentelemetry/sdk-trace-node": "^1.7.0",
     "@opentelemetry/semantic-conventions": "^1.7.0",
-    "body-parser": "~1.20.0",
-    "express": "~4.18.1",
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "nodeshift": "^12.0.0",
     "pino": "^8.4.2"
   }
 }
