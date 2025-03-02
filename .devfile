@@ -1,0 +1,25 @@
+schemaVersion: 2.2.2
+metadata:
+  name: nodejs-rest-http
+components:
+  - name: tools
+    container:
+      image: registry.redhat.io/devspaces/udi-rhel9
+      endpoints:
+        - exposure: public
+          name: application-index
+          targetPort: 8080
+        - exposure: none
+          name: debug
+          targetPort: 5858
+      memoryLimit: 1Gi
+      memoryRequest: 512Mi
+      cpuLimit: 2000m
+      cpuRequest: 500m
+      mountSources: true
+      volumeMounts:
+        - name: npm
+          path: /home/user/.npm
+  - name: npm
+    volume:
+      size: 1G
